@@ -75,6 +75,13 @@ module FullNameSplitter
           break if @first_name.size <= 2
         end
       end
+
+      if last_name =~ /^\w\.?$/
+        loop do
+          @last_name.unshift @first_name.pop
+          break if @first_name.size <= 2
+        end
+      end
     end
   end
   
